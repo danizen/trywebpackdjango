@@ -1,0 +1,23 @@
+{
+  "name": "trygulpdjango",
+  "version": "1.0.0",
+  "description": "An attempt to integrate Django with gulp",
+  "main": "manage.py",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "clean": "rm -f assets/bundles/*",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-libs-browser": "^0.6.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.9.11",
+    "webpack-bundle-tracker": "^0.2.0"
+  }
+}

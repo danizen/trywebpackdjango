@@ -1,0 +1,19 @@
+{% extends 'nlmcore_logo.html' %}
+{% load staticfiles %}
+
+{% block css_files %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/nlmcore_admin.css' %}" />
+{% endblock %}
+
+{% block nav %}
+<p>
+  <a class="btn btn-default" role="button" href="{% url 'home' %}">
+    <span class="glyphicon glyphicon-home"></span> Home
+  </a>
+</p>
+{% endblock %}
+
+{% block main %}
+  {% block casauthbody %}{% endblock %}
+{% endblock %}

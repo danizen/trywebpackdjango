@@ -1,0 +1,15 @@
+# Use mock for testing
+mock
+
+django-debug-toolbar
+webtest
+django-webtest
+coverage
+pytest
+mock
+selenium
+page-objects
+# phantomjs
+# holmium.core
+ipdb
+-r base.txt
