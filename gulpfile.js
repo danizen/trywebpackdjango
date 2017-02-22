@@ -44,6 +44,8 @@ gulp.task('css', function() {
 });
 
 
+gulp.task('build', ['js', 'css']);
+
 gulp.task('watch', function() {
     gulp.watch('assets/js/*.js', ['js'])
     gulp.watch(['assets/css/*.css', 'assets/scss/**.scss'], ['css'])
