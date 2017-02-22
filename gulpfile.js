@@ -4,16 +4,22 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     minify = require('gulp-minify'),
     sass = require('gulp-sass'),
+    util = require('gulp-util'),
     clean = require('gulp-clean'),
     cleancss = require('gulp-clean-css'),
     sourcemaps = require('gulp-sourcemaps'),
     merge = require('merge-stream');
 
+
+var production = !!util.env.production;
+
+
 gulp.task('js', function() {
+
     gulp.src('assets/js/*.js')
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.js'))
-        .pipe(minify({ext:{ src: '.js', min: '.min.js'}}))
+        .pipe(production ? minify() : util.noop())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('build'))
 });
@@ -31,7 +37,7 @@ gulp.task('css', function() {
     merge(cssStream, sassStream)
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.css'))
-        .pipe(cleancss())
+        .pipe(production ? cleancss() : util.noop())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('build'))
 });
@@ -42,6 +48,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('clean', function() {
-    gulp.src('build', {read: false})
-        .pipe(clean());
+    gulp.src('build', {read: false}).pipe(clean());
 });
+
