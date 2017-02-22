@@ -1,8 +1,8 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #444;
+@import 'variables';
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+  padding-top: 80px;
 }
 
