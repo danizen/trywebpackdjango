@@ -1,9 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-//var BundleTracker = require('webpack-bundle-tracker')
-//var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var BundleTracker = require('webpack-bundle-tracker')
 
-// new ExtractTextPlugin('bundle.css')
 
 
 module.exports = {
@@ -16,14 +14,16 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  //plugins: [
-  //  new BundleTracker({ path: __dirname, filename: 'webpack-stats.json' }),
-  //],
+  plugins: [
+    new BundleTracker({ path: __dirname, filename: 'webpack-stats.json' })
+  ],
 
   module: {
     loaders: [
       {
-        test: /\.css$/, exclude: /node_modules/, loader: 'style-loader!css-loader'
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'css-loader!style-loader'
       }
     ]
   },
