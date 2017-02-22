@@ -29,5 +29,8 @@
     "gulp-sourcemaps": "^2.4.1",
     "gulp-util": "^3.0.8",
     "merge-stream": "^1.0.1"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
   }
 }

@@ -32,7 +32,12 @@ gulp.task('css', function() {
                          .pipe(concatCss('css-files.css'));
 
     var sassStream = gulp.src('assets/scss/simple.scss')
-                         .pipe(sass({includePaths: 'assets/scss/partials'}))
+                         .pipe(sass({
+                           includePaths: [
+                             'assets/scss/partials',
+                             'node_modules/bootstrap-sass/assets/stylesheets'
+                           ]
+                         }))
                          .pipe(concatCss('scss-files.scss'));
 
     merge(cssStream, sassStream)
