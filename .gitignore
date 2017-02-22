@@ -105,3 +105,4 @@ $GIT_DIR/__pycache__*
 
 npm-debug.log
 webpack-stats.json
+package.json
