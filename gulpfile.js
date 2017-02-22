@@ -15,7 +15,7 @@ gulp.task('js', function() {
         .pipe(concat('bundle.js'))
         .pipe(minify({ext:{ src: '.js', min: '.min.js'}}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('assets/bundles'))
+        .pipe(gulp.dest('build'))
 });
 
 
@@ -24,7 +24,7 @@ gulp.task('css', function() {
     var cssStream =  gulp.src('assets/css/*.css')
                          .pipe(concat('css-files.css'));
 
-    var sassStream = gulp.src('assets/css/*.scss')
+    var sassStream = gulp.src('assets/scss/*.scss')
                          .pipe(sass())
                          .pipe(concat('scss-files.scss'));
 
@@ -33,15 +33,15 @@ gulp.task('css', function() {
         .pipe(concat('bundle.css'))
         .pipe(cleancss())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('assets/bundles'))
+        .pipe(gulp.dest('build'))
 });
 
 gulp.task('watch', function() {
     gulp.watch('assets/js/*.js', ['js'])
-    gulp.watch(['assets/css/*.css', 'assets/css/*.scss'], ['css'])
+    gulp.watch(['assets/css/*.css', 'assets/scss/*.scss'], ['css'])
 });
 
 gulp.task('clean', function() {
-    gulp.src('assets/bundles', {read: false})
+    gulp.src('build', {read: false})
         .pipe(clean());
 });
