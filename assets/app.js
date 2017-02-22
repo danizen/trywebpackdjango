@@ -1,6 +1,8 @@
 'use strict';
 
-require('./js/hello')
-require('./js/another')
+require('./js/hello');
+require('./js/another');
 
-require('css!./css/a.css')
+require('./css/a.css');
+require('./css/b.css');
+

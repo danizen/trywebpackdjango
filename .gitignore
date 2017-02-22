@@ -102,3 +102,6 @@ $GIT_DIR/__pycache__*
 
 /htmlcov
 /.pydevproject
+
+npm-debug.log
+webpack-stats.json
